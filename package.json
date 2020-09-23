@@ -2,13 +2,22 @@
   "name": "tellor-website",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/",
   "dependencies": {
+    "@n8tb1t/use-scroll-position": "^1.0.46",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "antd": "^4.6.4",
+    "axios": "^0.20.0",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
+    "react-burger-menu": "^2.7.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-responsive": "^8.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "react-twitter-embed": "^3.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

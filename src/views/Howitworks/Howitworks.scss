@@ -1,0 +1,206 @@
+@import '../../App.scss';
+
+.Howitworks {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+/* ILLU SECTION */
+
+.IlluSection {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 40px 0 0 0;
+}
+
+.IlluSection .top {
+    @include flexrow;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 170px;
+    margin: 0 0 60px 0;
+}
+
+.IlluSection .top h2 {
+    font-size: 2.375rem;
+    flex: 1;
+    text-align: left;
+}
+
+.IlluSection img {
+    width: 100%;
+    max-width: 1166px;
+}
+
+
+/* ILLU SECTION */
+
+.BulletSection {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.Bullet {
+    @include flexrow;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 80%;
+    max-width: 750px;
+    margin: 0 0 50px 0;
+}
+
+.Bullet img {
+    width: 148px;
+    height: 148px;
+    margin: 0 30px 0 0;
+}
+
+.BulletTxt {
+    @include flexcolumn;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    text-align: left;
+}
+
+.BulletTxt h2 {
+    margin: 20px 0 0 0;
+}
+
+.BulletTxt p {
+    font-size: 1.375rem;
+    line-height: 1.875rem;
+    font-weight: 300;
+    margin: 8px 0 0 0;
+    color: #707070;
+}
+
+.whitepaper_btn {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 70px 0 130px 0;
+}
+
+
+/* CONTRACT SECTION */
+
+.ContractSection {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #FAFAFA;
+    box-sizing: border-box;
+    padding: 120px 0 140px 0;
+}
+
+.ContractSection img {
+    width: 77px;
+    height: 105px;
+}
+
+.ContractSection h2 {
+    text-align: center;
+    width: 80%;
+    max-width: 772px;
+    margin: 50px 0 70px 0;
+}
+
+
+.ContractSection .whitebtn {
+    @include flexrow;
+    @include lightshadow;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 37px 0;
+}
+
+.ContractSection .whitebtn > svg {
+    margin: 0 8px 0 0;
+}
+
+
+
+
+/* QUERIES */
+
+/* Mobile */
+@media only screen and (max-width : 430px) {
+    .IlluSection .top {
+        padding: 0;
+        margin: 0 0 32px 0;
+    }
+    .IlluSection .top h2 {
+        font-size: 1.875rem;
+        text-align: center;
+
+    }
+
+    .Bullet {
+        @include flexcolumn;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 40px 0;
+    }
+    .Bullet img {
+        width: 110px;
+        height: 110px;
+        margin: 0 0 0 0;
+    }
+    .BulletTxt {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 274px;
+        margin: 0 0 0 0;
+    }
+    .BulletTxt h2 {
+        margin: 4px 0 0 0;
+    }
+    .BulletTxt p {
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+    .whitepaper_btn {
+        margin: 40px 0 100px 0;
+    }
+    .ContractSection {
+        padding: 80px 0 120px 0;
+    }
+    .ContractSection img {
+        width: 48px;
+        height: 66px;
+    }
+
+    .ContractSection h2 {
+        text-align: center;
+        width: 80%;
+        max-width: 248px;
+        margin: 40px 0 50px 0;
+    }
+    .ContractSection .whitebtn {
+        min-width: 264px;
+    }
+    
+
+}
+
+
+@media only screen and (min-width: 430px) and (max-width: 900px) {
+    .IlluSection .top h2 {
+        text-align: center;
+    }
+
+}

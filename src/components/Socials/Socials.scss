@@ -1,0 +1,37 @@
+@import '../../App.scss';
+
+
+.Socials {
+    margin: 0 0 220px 0;
+}
+
+.Socials a {
+    margin: 0 15px;
+    opacity: 0.45;
+}
+
+.Socials a:hover {
+    opacity: 1;
+}
+
+
+.logo_etc .Socials a {
+    margin: 0 18px 0 0;
+}
+
+
+.logo_etc .Socials {
+    margin: 0;
+}
+
+
+
+/* QUERIES */
+
+/* Mobile */
+@media only screen and (max-width : 430px) {
+    .Socials {
+        margin: 0 0 160px 0;
+    }
+}
+

@@ -1,0 +1,126 @@
+@import '../../App.scss';
+
+.About {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+/* ABOUT SECTION */
+
+.AboutSection {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.txt {
+    width: 80%;
+    max-width: 836px;
+}
+
+.txt h1 {
+    text-align: center;
+    width: 100%;
+    font-family: 'Renogare Soft Regular';
+    color: $blackish;
+    font-size: 4.625rem;
+    line-height: 4.625rem;
+    margin: 100px 0 70px 0 !important;
+}
+
+.txt p {
+    color:#707070;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    margin: 0 0 50px 0 !important;
+}
+.txt a {
+    color:#707070;
+    font-weight: 300;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    text-decoration: underline;
+}
+
+.bolder {
+    font-weight: 600;
+    color: $blackish;
+}
+
+
+
+/* BUTTON SECTION */
+
+.ButtonSection {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: #FAFAFA;
+    box-sizing: border-box;
+    padding: 120px 0 140px 0;
+    margin: 90px 0 0 0;
+
+}
+
+.ButtonSection .whitebtn {
+    @include flexrow;
+    @include lightshadow;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 37px 0;
+}
+
+.ButtonSection .whitebtn > svg {
+    margin: 0 8px 0 0;
+}
+
+
+.ButtonSection .smoltxt {
+    margin: 0 0 42px 0;
+}
+
+
+
+
+/* QUERIES */
+
+/* Mobile */
+@media only screen and (max-width : 430px) {
+
+    .txt {
+        width: 80%;
+        max-width: 275px;
+    }
+    .txt h1 {
+        font-size: 4.025rem !important;
+        line-height: 4.025rem !important;
+        margin: 60px 0 60px 0 !important;
+    }
+    .txt p {
+        font-size: 1rem;
+        line-height: 1.375rem;
+        margin: 0 0 30px 0;
+    }
+}
+
+@media only screen and (min-width: 430px) and (max-width: 900px) {
+    .txt p {
+        margin: 0 0 40px 0 !important;
+    }
+    .ButtonSection {
+        padding: 90px 0 100px 0;
+    }
+
+    .txt h1 {
+        margin: 60px 0 50px 0 !important;
+        font-size: 4.25rem !important;
+        line-height: 4.25rem !important;
+    }
+}

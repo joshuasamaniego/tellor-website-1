@@ -1,0 +1,80 @@
+@import '../../App.scss';
+
+.Footer {
+    @include greybg;
+    @include flexrow;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 120px 10vw 160px 10vw;
+}
+
+.logo_etc {
+    @include flexcolumn;
+
+}
+.logo_etc p {
+    font-size: 1rem;
+    color: $greylink;
+    margin: 0 0 40px 0;
+}
+
+.full_logo {
+    @include flexcolumn;
+}
+
+.full_logo img {
+    width: 57px;
+    height: 36px;
+    margin: 0 0 30px 0;
+}
+
+.full_logo h1 {
+    font-family: 'Renogare Soft Regular';
+    font-size: 3.75rem;
+    line-height: 4rem;
+    color:white;
+    margin: 0;
+}
+
+
+.links {
+    @include flexcolumn;
+    text-align: right;
+    margin: 35px 0 0 0;
+}
+
+.links p {
+    font-size: 1rem !important;
+
+    font-weight: 400;
+    color: $grey555;
+}
+
+.links a {
+    font-size: 1rem !important;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    color: $greylink;
+    text-decoration: underline;
+}
+
+
+
+/* QUERIES */
+
+/* Mobile */
+@media only screen and (max-width : 430px) {
+    .Footer {
+        @include flexcolumn;
+        flex-direction: column-reverse;
+        padding: 90px 60px 100px 60px;
+    }
+    .links {
+        @include flexcolumn;
+        text-align: left;
+        margin: 0 0 70px 0;
+    }
+
+}

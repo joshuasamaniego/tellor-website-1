@@ -1,0 +1,393 @@
+@import '../../App.scss';
+
+/* HERO SECTION */
+
+.HeroSection {
+    @include greybg;
+    @include flexcolumn;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: -130px 0 0 0;
+}
+.HeroSection h1 {
+    font-family: 'Renogare Soft Regular';
+    color: white;
+    font-size: 4.625rem;
+    line-height: 4.625rem;
+    margin: 300px 0 0 0;
+    text-align: center;
+}
+
+.HeroSection p {
+    color: $greentxt;
+    font-size: 1.625rem;
+    font-weight: 300;
+    margin: 15px 0 40px 0;
+    text-shadow: 0px 6px 20px rgba(40, 244, 133, 0.2);
+}
+
+
+
+
+/* HOW SECTION */
+
+.HowSection {
+    @include flexcolumn;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 130px 0 120px 0;
+}
+
+.Illus {
+    @include flexrow;
+    align-items: center;
+    justify-content: space-around;
+    width: 520px;
+    margin: 0px 0 0 0;
+}
+
+.Illus img {
+    width: 104px;
+}
+
+.HowSection h2 {
+    width: 80vw;
+    max-width: 800px;
+    text-align: center;
+    margin: 58px 0 68px 0;
+}
+
+
+
+
+
+/* INTEGRATE SECTION */
+
+.IntegrateSection {
+    @include flexcolumn;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    width: 100%;
+}
+
+.IntegrateSection p {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    text-align: center;
+    width: 100%;
+    max-width: 510px;
+}
+
+.boxinbox {
+    width: 100%;
+    @include flexcolumn;
+    box-sizing: border-box;
+    padding: 100px 0;
+    align-items: center;
+    justify-content: center;
+    background: #FAFAFA;
+}
+
+.IntegrateSection .whitebtn {
+    @include lightshadow;
+}
+
+.code {
+    box-sizing: border-box;
+    padding: 16px;
+    width: 80%;
+    max-width: 760px;
+    background-color: #F0F0F0;
+    margin: 50px 0;
+}
+
+.code p {
+    text-align: left;
+    width: 100%;
+    color: #42567E;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin: 0;
+}
+
+.indented {
+    margin: 0 0 0 30px;
+}
+
+
+
+
+/* PRODUCT SECTION */
+
+.ProductsSection {
+    @include greybg;
+    @include flexcolumn;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 155px 0 170px 0;
+}
+
+.ProductsSection h2 {
+   color:white;
+   width: 80%;
+   max-width: 600px;
+   text-align: center;
+   margin: 0;
+
+}
+
+.ProductsSection p {
+    color: $greylink;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    font-weight: 300;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 0 80px 0;
+}
+
+.ProductsSection img {
+    width: 100%;
+    max-width: 1145px;
+    margin: 0;
+}
+
+.two_btns {
+    width: 648px;
+    @include flexrow;
+    align-items: center;
+    justify-content: space-between;
+}
+.two_btns button {
+    min-width: 305px !important;
+}
+
+.ProductsSection .txtlink {
+    margin: 60px 0 0 0;
+}
+
+
+
+
+/* FINDUS SECTION */
+
+.FindUsSection {
+    @include flexcolumn;
+    align-items: center;
+    justify-content: center;
+    background-color: #F0F0F0;
+    box-sizing: border-box;
+    padding: 120px 0 135px 0;
+}
+
+.FindUsSection h2 {
+    margin: 0 0 100px 0;
+}
+
+.FindUsSection .two_btns {
+    margin: 85px 0 0 0;
+}
+
+.FindUsSection .two_btns button {
+    @include flexrow;
+    @include lightshadow;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 64px 19px 64px !important;
+    margin: 0;
+}
+
+.FindUsSection .two_btns button > svg {
+    margin: 0 8px 0 0;
+}
+
+.FindUsSection .txtlink {
+    @include flexrow;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0 0 0;
+}
+
+.FindUsSection .txtlink > svg {
+    margin: 0 14px 0 0;
+}
+
+.socialmedia {
+    @include flexrow;
+    align-items: flex-start;
+    justify-content: center;
+}
+.socialmedia > div {
+    margin: 0 15px;
+}
+
+
+
+/* QUERIES */
+
+/* Mobile */
+@media only screen and (max-width : 430px) {
+
+    .socialmedia {
+        @include flexcolumn;
+    }
+
+
+    /* HERO MOBILE */
+
+    .HeroSection h1 {
+        font-size: 4.125rem;
+        line-height: 4.125rem;
+        margin: 220px 0 0 0;
+    }
+    .HeroSection p {
+        color: $greentxt;
+        font-size: 1.125rem;
+        font-weight: 300;
+        margin: 25px 0 40px 0;
+    }
+
+
+    /* HOW MOBILE */
+
+    .HowSection {
+        padding: 80px 0;
+    }
+    .Illus {
+        width: 250px;
+    }
+    .Illus img {
+        width: 70px;
+    }
+    .HowSection h2 {
+        max-width: 248px;
+        margin: 34px 0 50px 0;
+    }
+    .HowSection .greenbtn {
+        min-width: 300px;
+    }
+
+    /* INTEGRATE MOBILE */
+
+    .IntegrateSection {
+        padding: 10px;
+    }
+    .IntegrateSection p {
+        font-size: 1rem;
+        line-height: 1.25rem;
+        max-width: 248px;
+    }
+    .boxinbox {
+        padding: 50px 10px 100px 10px;
+    }
+    .code {
+        margin: 30px 0 50px 0;
+    }
+    .IntegrateSection .whitebtn {
+        @include lightshadow;
+        min-width: 305px;
+    }
+
+    /* PRODUCT MOBILE */
+    .ProductsSection {
+        padding: 90px 0 130px 0;
+    }
+    .ProductsSection h2 {
+        color:white;
+        width: 100%;
+        max-width: 256px;
+        text-align: center;
+        margin: 0 0 25px 0;
+     }
+     .ProductsSection img {
+        margin: 0 0 20px 0;
+    }
+    .ProductsSection p {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        max-width: 254px;
+        margin: 0 0 50px 0;
+    }
+    .ProductsSection .two_btns button {
+        min-width: 315px;
+    }
+    .two_btns {
+        width: 100%;
+        @include flexcolumn;
+        align-items: center;
+        justify-content: center;
+    }
+    .two_btns button {
+        min-width: 305px !important;
+        margin: 10px 0 0 0;
+    }
+    .ProductsSection .txtlink {
+        margin: 50px 0 0 0;
+    }
+
+
+    /* FINDUS MOBILE */
+    .FindUsSection {
+        padding: 90px 0 130px 0;
+    }
+    .FindUsSection .two_btns {
+        margin: 30px 0 0 0;
+    }
+    .FindUsSection .two_btns button {
+        margin: 20px 0 0 0;
+        min-width: 305px !important;
+    }
+    .FindUsSection h2 {
+        margin: 0 0 40px 0;
+    }
+    .socialmedia > div {
+        margin: 15px 0;
+    }
+}
+
+
+@media only screen and (min-width: 430px) and (max-width: 900px){
+
+    .HowSection {
+        padding: 120px 0 90px 0;
+    }
+    .HowSection h2 {
+        width: 75vw;
+        margin: 50px 0 60px 0;
+    }
+    .IntegrateSection {
+        padding: 40px;
+    }
+
+    .ProductsSection h2 {
+        width: 74%;
+    }
+    .ProductsSection {
+        padding: 130px 0 170px 0;
+    }
+
+    .two_btns {
+        width: 634px;
+    }
+
+    .ProductsSection p {
+        margin: 0 0 60px 0;
+    }
+    .FindUsSection {
+        padding: 100px 0 135px 0;
+    }
+    .FindUsSection h2 {
+        margin: 0 0 60px 0;
+    }
+    .FindUsSection .two_btns {
+        margin: 65px 0 0 0;
+    }
+
+  }

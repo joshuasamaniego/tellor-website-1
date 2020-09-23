@@ -1,0 +1,194 @@
+@import '../../App.scss';
+
+.Nav {
+    @include flexrow;
+    box-sizing: border-box;
+    padding: 50px 60px;
+    color: $greentxt;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 130px;
+    position: sticky;
+    left: 0;
+    z-index: 99;
+
+    transition-property: all;
+    transition-duration: 0.25s !important;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.Nav__hide {
+    top: -150px;
+}
+
+.Nav__sight {
+    top: 0;
+}
+
+.transp {
+    background: transparent;
+}
+.whitish {
+    background: rgba($color: white, $alpha: 0.9);
+}
+.greyish {
+    background: rgba($color: #262626, $alpha: 0.92);
+}
+
+
+.Nav a {
+    color: $greylink;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+}
+
+
+.Nav .Logo {
+    @include flexrow;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.Nav .Logo p {
+    font-family: 'Renogare Soft Regular';
+    font-size: 26px;
+    margin: 0 0 0 27px;
+    color: $blackish
+}
+
+.Nav .Logo img {
+    width: 56px;
+    height: 35px;
+}
+
+.Menu_Total {
+    @include flexrow;
+    box-sizing: border-box;
+    padding: 0 0 0 0;
+}
+
+.Menu a {
+    margin: 0 40px 0 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.Menu a:hover {
+    border-bottom: 2px solid $brightgreen;
+}
+
+.Menu .selected {
+    color: black;
+    border-bottom: 2px solid $brightgreen;
+}
+
+
+
+
+/* HAMBURGER MENU SPECIFICS */
+
+.bm-burger-button {
+    position: fixed;
+    top: 50px;
+    width: 30px;
+    height: 26px;
+    right: 40px;
+    z-index: 2;
+
+    transition-property: all;
+    transition-duration: 0.25s !important;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+
+}
+
+
+// .Nav__sight .bm-burger-button {
+//     top: 50px;
+// }
+
+// .Nav__hide .bm-burger-button {
+//     top: 0px;
+// }
+
+button:active {
+    outline: none;
+    border: none;
+}
+    
+button:focus {
+    outline:0;
+}
+
+.bm-burger-button:active {
+    outline: none;
+}
+
+.bm-menu {
+    @include greybg;
+    @include flexcolumn;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 80px 0;
+    z-index: 999 !important;
+}
+.bm-overlay, .bm-menu {
+    top: 0;
+    right: 0;
+}
+.menu-item {
+    text-align: center;
+    margin: 20px 0;
+}
+.bm-cross-button {
+    margin: 1.75rem 1.25rem;
+}
+.bm-menu-wrap {
+    top: 0;
+}
+
+
+
+
+/* QUERIES */
+
+/* Mobile */
+@media only screen and (max-width : 430px) {
+    .Menu_Total {
+        @include flexcolumn;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+        padding: 90px 0 0 0;
+    }
+    .Menu {
+        @include flexcolumn;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0 0 0;
+    }
+    .Menu a {
+        margin: 0;
+    }
+    .Nav {
+        height: 120px;
+        padding: 0;
+    }
+    .Nav .Logo {
+        margin: 42px 38px;
+    }
+}
+
+@media only screen and (min-width: 430px) and (max-width: 900px){
+
+    .bm-menu-wrap {
+        top: 0;
+    }
+}
+
+
+
