@@ -12,9 +12,10 @@ import { useMediaQuery } from 'react-responsive';
 
 const Nav = () => {
     const location = useLocation();
-    const isMobile = useMediaQuery({query: '(max-device-width: 1224px)'})
+    const isMobile = useMediaQuery({query: '(max-width: 810px)'})
     const [navClasses, setNavClasses] = useState("Nav__sight");
     const [navBg, setNavBg] = useState("transp ");
+    console.log("Is it?",isMobile);
 
     // SHOW/HIDE NAV FUNCTION
     useScrollPosition(({ prevPos, currPos }) => {

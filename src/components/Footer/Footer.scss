@@ -65,7 +65,7 @@
 /* QUERIES */
 
 /* Mobile */
-@media only screen and (max-width : 430px) {
+@media only screen and (max-width : 480px) {
     .Footer {
         @include flexcolumn;
         flex-direction: column-reverse;

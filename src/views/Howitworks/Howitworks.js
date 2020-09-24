@@ -15,7 +15,7 @@ import dispute from '../../imgs/tellor_infographic_dispute.png';
 
 
 function Howitworks() {
-  const isMobile = useMediaQuery({query: '(max-device-width: 1224px)'});
+  const isMobile = useMediaQuery({query: '(max-width: 810px)'});
   window.scrollTo(0, 0);
   return (
     <div className="Howitworks">

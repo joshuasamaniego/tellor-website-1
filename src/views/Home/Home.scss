@@ -17,6 +17,7 @@
     line-height: 4.625rem;
     margin: 300px 0 0 0;
     text-align: center;
+    width: 80%;
 }
 
 .HeroSection p {
@@ -233,7 +234,7 @@
 /* QUERIES */
 
 /* Mobile */
-@media only screen and (max-width : 430px) {
+@media only screen and (max-width : 480px) {
 
     .socialmedia {
         @include flexcolumn;
@@ -353,7 +354,7 @@
 }
 
 
-@media only screen and (min-width: 430px) and (max-width: 900px){
+@media only screen and (min-width: 480px) and (max-width: 900px){
 
     .HowSection {
         padding: 120px 0 90px 0;
@@ -373,9 +374,9 @@
         padding: 130px 0 170px 0;
     }
 
-    .two_btns {
-        width: 634px;
-    }
+    // .two_btns {
+    //     width: 634px;
+    // }
 
     .ProductsSection p {
         margin: 0 0 60px 0;

@@ -2,7 +2,7 @@
   "name": "tellor-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/",
+  "homepage": ".",
   "dependencies": {
     "@n8tb1t/use-scroll-position": "^1.0.46",
     "@testing-library/jest-dom": "^4.2.4",
