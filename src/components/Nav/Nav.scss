@@ -3,12 +3,12 @@
 .Nav {
     @include flexrow;
     box-sizing: border-box;
-    padding: 50px 60px;
+    padding: 45px 50px;
     color: $greentxt;
     width: 100%;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 130px;
+    height: 110px;
     position: sticky;
     left: 0;
     z-index: 99;
@@ -190,5 +190,14 @@ button:focus {
     }
 }
 
+
+@media only screen and (min-width: 1500px){
+
+
+    .Nav {
+        padding: 50px 60px;
+    }
+
+}
 
 

@@ -19,6 +19,7 @@ import productscreens from '../../imgs/tellor_productscreens.png';
 function Home() {
   const isMobile = useMediaQuery({query: '(max-device-width: 1224px)'})
   const isTablet = useMediaQuery({query: '(min-device-width: 430px) and (max-device-width: 930px)'})
+  const isDesktopXL = useMediaQuery({query: '(min-device-width: 1500px'})
 
   return (
     <div className="Home">
@@ -115,12 +116,23 @@ function Home() {
             screenName="WeAreTellor"
             options={{height: 350}}
           />
-          : 
+          :
+          <>
+          {isDesktopXL ?
           <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName="WeAreTellor"
-          options={{height: 480}}
-        />
+            sourceType="profile"
+            screenName="WeAreTellor"
+            options={{height: 480}}
+          />
+          :
+          
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName="WeAreTellor"
+            options={{height: 450}}
+          />
+          }
+          </>
           }
         </div>
          <div className="two_btns">

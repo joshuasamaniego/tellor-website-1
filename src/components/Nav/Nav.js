@@ -9,13 +9,13 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import { slide as Menu } from 'react-burger-menu';
 import { useMediaQuery } from 'react-responsive';
 
+import tellorXwhitepaper from '../../docs/tellorX-whitepaper.pdf';
 
 const Nav = () => {
     const location = useLocation();
     const isMobile = useMediaQuery({query: '(max-width: 810px)'})
     const [navClasses, setNavClasses] = useState("Nav__sight");
     const [navBg, setNavBg] = useState("transp ");
-    console.log("Is it?",isMobile);
 
     // SHOW/HIDE NAV FUNCTION
     useScrollPosition(({ prevPos, currPos }) => {
@@ -63,6 +63,7 @@ const Nav = () => {
                 customBurgerIcon={ <Icons.Hamburger /> }
                 customCrossIcon={ <Icons.Closer /> } >
                 <a id="home" className="menu-item" href="/">Home</a>
+                <a href={tellorXwhitepaper} target="_blank" rel="noopener noreferrer">tellorX</a>
                 <a id="howitworks" className="menu-item" href="/howitworks">How it works</a>
                 <a id="about" className="menu-item" href="/about">About</a>
                 <a id="documentation" className="menu-item" href="https://docs.tellor.io/" target="_blank" rel="noopener noreferrer">Documentation</a>
@@ -95,6 +96,7 @@ const Nav = () => {
             <div className="flexer"></div>
             <div className="Menu_Total">
                 <div className="Menu">
+                    <a href={tellorXwhitepaper} target="_blank" rel="noopener noreferrer">tellorX</a>
                     <Link className={location.pathname === "/howitworks" ? 'selected' : null} to="/howitworks">How it works</Link>
                     <Link className={location.pathname === "/about" ? 'selected' : null} to="/about">About</Link>
                     <a href="https://docs.tellor.io/" target="_blank" rel="noopener noreferrer">Documentation</a>

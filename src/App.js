@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./views/Home/Home";
 import Howitworks from "./views/Howitworks/Howitworks";
 import About from "./views/About/About";
+import Jobs from "./views/Jobs/Jobs";
 import FourOhFour from "./views/FourOhFour/FourOhFour";
 	
 import './fonts/RenogareSoft-Regular.woff';
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/howitworks" component={Howitworks} />
           <Route path="/about" component={About} />
+          <Route path="/jobs" component={Jobs} />
           <Route path="*" component={FourOhFour} />
         </Switch>
         <Footer />

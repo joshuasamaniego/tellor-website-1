@@ -2,7 +2,7 @@
 
 
 .Socials {
-    margin: 0 0 220px 0;
+    margin: 0 0 200px 0;
 }
 
 .Socials a {
@@ -35,3 +35,8 @@
     }
 }
 
+@media only screen and (min-width: 1500px){
+    .Socials {
+        margin: 0 0 220px 0;
+    }
+}

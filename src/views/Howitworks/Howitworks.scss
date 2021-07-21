@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 40px 0 0 0;
+    margin: 60px 0 0 0;
 }
 
 .IlluSection .top {
@@ -25,19 +25,19 @@
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 170px;
+    padding: 0 190px;
     margin: 0 0 60px 0;
 }
 
 .IlluSection .top h2 {
-    font-size: 2.375rem;
+    font-size: 2.15rem;
     flex: 1;
     text-align: left;
 }
 
 .IlluSection img {
     width: 100%;
-    max-width: 1166px;
+    max-width: 1066px;
 }
 
 
@@ -56,13 +56,13 @@
     justify-content: flex-start;
     width: 80%;
     max-width: 750px;
-    margin: 0 0 50px 0;
+    margin: 0 0 35px 0;
 }
 
 .Bullet img {
-    width: 148px;
-    height: 148px;
-    margin: 0 30px 0 0;
+    width: 140px;
+    height: 140px;
+    margin: 0 20px 0 0;
 }
 
 .BulletTxt {
@@ -90,7 +90,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin: 70px 0 130px 0;
+    margin: 60px 0 130px 0;
 }
 
 
@@ -103,19 +103,19 @@
     width: 100%;
     background: #FAFAFA;
     box-sizing: border-box;
-    padding: 120px 0 140px 0;
+    padding: 110px 0 110px 0;
 }
 
 .ContractSection img {
-    width: 77px;
-    height: 105px;
+    width: 70px;
+    height: 95px;
 }
 
 .ContractSection h2 {
     text-align: center;
     width: 80%;
     max-width: 772px;
-    margin: 50px 0 70px 0;
+    margin: 50px 0 55px 0;
 }
 
 
@@ -202,5 +202,62 @@
     .IlluSection .top h2 {
         text-align: center;
     }
+
+}
+
+@media only screen and (min-width: 1500px){
+
+
+    .IlluSection .top {
+        padding: 0 170px;
+    }
+
+    .IlluSection {
+        margin: 40px 0 0 0;
+    }
+    .IlluSection .top h2 {
+        font-size: 2.375rem;
+    }
+    
+    .IlluSection img {
+        max-width: 1166px;
+    }
+
+
+    .Bullet {
+        margin: 0 0 50px 0;
+    }
+
+    .Bullet img {
+        width: 148px;
+        height: 148px;
+        margin: 0 30px 0 0;
+    }
+
+    .BulletTxt p {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        font-weight: 300;
+        margin: 8px 0 0 0;
+        color: #707070;
+    }
+
+    .whitepaper_btn {
+        margin: 70px 0 130px 0;
+    }
+
+    .ContractSection {
+        padding: 120px 0 140px 0;
+    }
+    .ContractSection h2 {
+        margin: 50px 0 70px 0;
+    }
+    
+
+    .ContractSection img {
+        width: 77px;
+        height: 105px;
+    }
+
 
 }
