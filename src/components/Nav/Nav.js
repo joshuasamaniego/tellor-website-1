@@ -66,6 +66,7 @@ const Nav = () => {
                 <a href={tellorXwhitepaper} target="_blank" rel="noopener noreferrer">tellorX</a>
                 <a id="howitworks" className="menu-item" href="/howitworks">How it works</a>
                 <a id="about" className="menu-item" href="/about">About</a>
+                <a id="howitworks" className="menu-item" href="/bounties">Bounties</a>
                 <a id="documentation" className="menu-item" href="https://docs.tellor.io/" target="_blank" rel="noopener noreferrer">Documentation</a>
                 <a id="git" className="menu-item" href="https://github.com/tellor-io" target="_blank" rel="noopener noreferrer"><Icons.Github height="30px" width="30.81px" /></a>
 
@@ -99,6 +100,7 @@ const Nav = () => {
                     <a href={tellorXwhitepaper} target="_blank" rel="noopener noreferrer">tellorX</a>
                     <Link className={location.pathname === "/howitworks" ? 'selected' : null} to="/howitworks">How it works</Link>
                     <Link className={location.pathname === "/about" ? 'selected' : null} to="/about">About</Link>
+                    <Link className={location.pathname === "/bounties" ? 'selected' : null} to="/bounties">Bounties</Link>
                     <a href="https://docs.tellor.io/" target="_blank" rel="noopener noreferrer">Documentation</a>
                 </div>
                 <a href="https://github.com/tellor-io" target="_blank" rel="noopener noreferrer"><Icons.Github height="30px" width="30.81px" /></a>

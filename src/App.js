@@ -11,6 +11,7 @@ import Howitworks from "./views/Howitworks/Howitworks";
 import About from "./views/About/About";
 import Jobs from "./views/Jobs/Jobs";
 import FourOhFour from "./views/FourOhFour/FourOhFour";
+import Bounties from "./views/Bounties/Bounties";
 	
 import './fonts/RenogareSoft-Regular.woff';
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/howitworks" component={Howitworks} />
           <Route path="/about" component={About} />
           <Route path="/jobs" component={Jobs} />
+          <Route path="/bounties" component={Bounties} />
           <Route path="*" component={FourOhFour} />
         </Switch>
         <Footer />
