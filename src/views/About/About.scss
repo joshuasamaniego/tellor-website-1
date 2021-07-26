@@ -1,64 +1,55 @@
-@import '../../App.scss';
+@import "../../App.scss";
 
 .About {
-    @include flexcolumn;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  @include flexcolumn;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
-
-
 
 /* BUTTON SECTION */
 
 .ButtonSection {
-    @include flexcolumn;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    background: #FAFAFA;
-    box-sizing: border-box;
-    padding: 110px 0 110px 0;
-    margin: 80px 0 0 0;
-
+  @include flexcolumn;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #fafafa;
+  box-sizing: border-box;
+  padding: 40px 0 40px 0;
 }
 
 .ButtonSection .whitebtn {
-    @include flexrow;
-    @include lightshadow;
-    align-items: center;
-    justify-content: center;
-    margin: 0 0 37px 0;
+  @include flexrow;
+  @include lightshadow;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 37px 0;
 }
 
 .ButtonSection .whitebtn > svg {
-    margin: 0 8px 0 0;
+  margin: 0 8px 0 0;
 }
-
 
 .ButtonSection .smoltxt {
-    margin: 0 0 42px 0;
+  margin: 0 0 42px 0;
 }
-
-
-
 
 /* QUERIES */
 
 @media only screen and (min-width: 480px) and (max-width: 900px) {
-    .ButtonSection {
-        padding: 90px 0 100px 0;
-    }
+  .ButtonSection {
+    padding: 90px 0 100px 0;
+  }
 }
 
-
-@media only screen and (min-width: 1500px){
-    .txt h1 {
-        font-size: 4.625rem;
-        line-height: 4.625rem;
-    }
-    .ButtonSection {
-        padding: 120px 0 140px 0;
-        margin: 90px 0 0 0;
-        }
+@media only screen and (min-width: 1500px) {
+  .txt h1 {
+    font-size: 4.625rem;
+    line-height: 4.625rem;
+  }
+  .ButtonSection {
+    padding: 120px 0 140px 0;
+    margin: 90px 0 0 0;
+  }
 }
