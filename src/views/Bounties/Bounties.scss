@@ -1,20 +1,476 @@
-@import '../../App.scss';
+/// Tellor Bounties SCSS ////
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap");
+@import "variables";
+@import "../../App.scss";
 
 .Bounties {
-    @include flexcolumn;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+  @include flexcolumn;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 
+$background: #fafafa;
+$tellor-grey1: #f2f2f2;
+$tellor-grey2: #f0f0f0;
+$darkestgrey: #555555;
+$tellor-green: #2dfc9f;
 
+/* gradient mixins */
+@mixin greenshine {
+  background: $tellor-green;
+  background: linear-gradient(90deg, #2dfc9f 0%, #00fb89 100%);
+}
 
+/* font mixins */
+@mixin tenpxfont {
+  font-size: 0.625rem !important;
+  line-height: 0.85rem !important;
+}
+
+@mixin twelvepxfont {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
+
+@mixin fourteenpxfont {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+@mixin sixteenpxfont {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
+@mixin eighteenpxfont {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+}
+
+/* general mixins */
+@mixin centeredrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centeredcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin leftrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin leftcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin rightrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin rightcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+body {
+  background-color: $background;
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+/* general classes */
+.fadeIn {
+  animation: 1s ease-in fadeIn;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Styles for App.js
+.App__Container {
+  @include centeredcolumn();
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+// Styles for Header.js
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 102%;
+}
+.Header__Logo {
+  margin-left: -40px;
+}
+#openModalButton {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+.Modal {
+  display: none;
+  position: fixed;
+  z-index: 101;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.Available__Bounties {
+  @include centeredcolumn();
+  color: $darkestgrey;
+
+  h2 {
+    margin-bottom: 5px;
+  }
+  h4 {
+    margin-top: 10px;
+  }
+}
+#Special__Button {
+  &:hover {
+    cursor: default;
+    transition: none;
+    transform: none;
+  }
+}
+
+//Styles for Welcome.js
+.Welcome {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $background;
+  margin: 5% auto;
+  padding: 1% 4%;
+  border: 2px solid $tellor-grey2;
+  border-radius: 10px;
+}
+.Welcome__Header {
+  @include centeredrow();
+  span {
+    font-size: 30px;
+    margin-top: -5%;
+    margin-right: -1.8%;
+    color: $darkestgrey;
+
+    &:hover,
+    &:focus {
+      color: $tellor-green;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}
+.Welcome__Message {
+  margin: 2% auto;
+  padding: 20px;
+  letter-spacing: 1.2px;
+}
+.Welcome__Rows {
+  @include centeredrow();
+  padding-bottom: 2%;
+
+  img {
+    width: 80px;
+    flex: 0.05;
+  }
+  h3 {
+    font-weight: 600;
+    margin: 0% 3%;
+    flex: 0.15;
+  }
+  p {
+    @include sixteenpxfont();
+    font-weight: 300;
+    flex: 0.8;
+  }
+}
+
+//Styles for ClaimModal.js
+#claimModalButton {
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+.Claim__Modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Claim {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $background;
+  margin: 5% auto;
+  padding: 1% 4%;
+  border: 2px solid $tellor-grey2;
+  border-radius: 10px;
+}
+
+.Claim__Header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+  span {
+    font-size: 30px;
+    color: $darkestgrey;
+
+    &:hover,
+    &:focus {
+      color: $tellor-green;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  }
+}
+.CF__Error {
+  text-align: center;
+}
+.CF__Error h5 {
+  color: red;
+}
+.Claim__Form {
+  @include centeredcolumn();
+  padding: 2%;
+  width: 100%;
+  font-family: "Roboto";
+  &::placeholder {
+    font-family: "Roboto";
+  }
+}
+.CF__Job {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.CF__Double__Container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1% 0;
+}
+.CF__Input__Container {
+  flex: 0.5;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-right: 1%;
+  }
+  input {
+    width: 80%;
+    height: 42px;
+    box-shadow: inset -1px 1px 2px rgba(204, 204, 204, 0.2),
+      inset 1px -1px 2px rgba(204, 204, 204, 0.2),
+      inset -1px -1px 2px rgba(255, 255, 255, 0.9),
+      inset 1px 1px 3px rgba(204, 204, 204, 0.9);
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.CF__Long__Input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5%;
+
+  input {
+    width: 90%;
+    height: 42px;
+    box-shadow: inset -1px 1px 2px rgba(204, 204, 204, 0.2),
+      inset 1px -1px 2px rgba(204, 204, 204, 0.2),
+      inset -1px -1px 2px rgba(255, 255, 255, 0.9),
+      inset 1px 1px 3px rgba(204, 204, 204, 0.9);
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  textarea {
+    width: 89%;
+    height: 100px;
+    box-shadow: inset -1px 1px 2px rgba(204, 204, 204, 0.2),
+      inset 1px -1px 2px rgba(204, 204, 204, 0.2),
+      inset -1px -1px 2px rgba(255, 255, 255, 0.9),
+      inset 1px 1px 3px rgba(204, 204, 204, 0.9);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: "Roboto";
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.Claim__Button {
+  margin: 2% 0;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+// --- Ant D Overrides ---
+
+// Buttons
+.ant-btn {
+  @include sixteenpxfont;
+  @include greenshine;
+  color: $darkestgrey;
+  box-sizing: border-box;
+  padding: 14px 40px 18px 40px;
+  height: 50px;
+  transition: all 0.025s linear;
+
+  @media (max-width: 965px) {
+    padding: 12px 30px;
+    height: 40px;
+    @include fourteenpxfont;
+  }
+
+  width: auto;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+
+  &:disabled {
+    @include greenshine;
+
+    span {
+      opacity: 0.5;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $darkestgrey;
+    @include greenshine;
+    border: none;
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.995);
+  }
+}
+// Table
+.ant-table-wrapper {
+  margin-bottom: 3%;
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: 300;
+  margin: 0 2% 2% 0;
+}
+.ant-table {
+  @include eighteenpxfont();
+  margin: 2%;
+  width: 100%;
+}
+.ant-table-content {
+  padding: 2%;
+}
+.ant-table-thead {
+  background: $tellor-grey1;
+}
+.ant-table-thead > tr > th {
+  text-align: center !important;
+}
+.ant-table-tbody > tr > td {
+  width: 280px;
+  padding: 10px 0px;
+  text-align: center;
+}
+.ant-table-tbody > tr > td > p {
+  text-align: center !important;
+  @include leftrow();
+  @include sixteenpxfont();
+  padding: 1% 0 1% 10%;
+  background: $tellor-grey1;
+}
+.ant-table-row-expand-icon-cell {
+  width: 50px !important;
+}
+.ant-table-column-sorters {
+  display: flex;
+  justify-content: space-evenly;
+}
+.ant-table-column-sorter-inner {
+  display: flex;
+  flex-direction: column;
+}
+.anticon svg {
+  font-size: 14px;
+  color: $darkestgrey;
+}
+.ant-tooltip {
+  display: none;
+}
 
 /* QUERIES */
 
 @media only screen and (min-width: 480px) and (max-width: 900px) {
 }
 
-
-@media only screen and (min-width: 1500px){
+@media only screen and (min-width: 1500px) {
 }
