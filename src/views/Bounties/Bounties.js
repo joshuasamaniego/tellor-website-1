@@ -38,7 +38,7 @@ function Bounties() {
       title: "Suggest A Bounty",
       jobType: "Various",
       tributes: "Various",
-      available: "Yes",
+      available: "Available",
       description:
         "Have a suggestion? After you claim this bounty, let us know about your idea on how to expand Tellor in the comments section!",
     };
@@ -64,32 +64,34 @@ function Bounties() {
   //AntD Column Logic
   const columns = [
     {
-      title: "Job Title",
+      title: "Title",
       dataIndex: "title",
+      width: '40%',
     },
     {
-      title: "Job Type",
+      title: "Type",
       dataIndex: "jobType",
+      sorter:
+      {
+        compare: (a, b) => a.jobType.localeCompare(b.jobType),
+        multiple: 1,
+      },
+      width: '25%',
     },
     {
-      title: "Bounty",
-      dataIndex: "tributes",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.tributes - b.tributes,
-    },
-    {
-      title: "Available",
+      title: "Availability",
       dataIndex: "available",
+      width: '15%',
     },
     {
-      title: "Action",
-      dataIndex: "",
-      key: "x",
-      render: () => (
-        <Button id="claimModalButton" onClick={openClaimModal}>
-          Claim
-        </Button>
-      ),
+      title: "Reward",
+      dataIndex: "tributes",
+      width: '15%',
+      sorter:
+      {
+        compare: (a, b) => a.tributes - b.tributes,
+        multiple: 1,
+      },
     },
   ];
 
@@ -144,6 +146,9 @@ function Bounties() {
                     </a>
                   </p>
                 ) : null}
+                <Button id="claimModalButton" onClick={openClaimModal}>
+                  Claim
+                </Button>
               </>
             ),
             expandIcon: ({ expanded, onExpand, record }) =>
@@ -154,6 +159,7 @@ function Bounties() {
               ),
             rowExpandable: (record) => record.builds !== "Not Expandable",
           }}
+          expandIconColumnIndex={4}
           dataSource={bountiesData}
         />
       </div>

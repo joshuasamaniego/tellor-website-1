@@ -93,7 +93,6 @@ $tellor-green: #2dfc9f;
 }
 
 body {
-  background-color: $background;
   color: black;
   font-family: "Roboto", sans-serif;
 }
@@ -407,27 +406,27 @@ body {
   display: flex;
   justify-content: space-evenly;
   font-weight: 300;
+  width: 100%;
+}
+.ant-spin-nested-loading {
+  width: 100%;
+
 }
 .ant-table {
   @include eighteenpxfont();
   width: 100%;
 }
-.ant-table-content {
-  padding: 2%;
-}
 .ant-table-thead {
   background: $tellor-grey1;
 }
 .ant-table-thead > tr > th {
-  text-align: center !important;
+  font-weight: 100;
 }
 .ant-table-tbody > tr > td {
-  width: 280px;
-  padding: 10px 0px;
-  text-align: center;
+  padding: 20px 16px;
+  border-bottom: 1px solid #999999;
 }
 .ant-table-tbody > tr > td > p {
-  text-align: center !important;
   @include leftrow();
   @include sixteenpxfont();
   padding: 1% 0 1% 10%;
@@ -436,16 +435,14 @@ body {
 .ant-table-row-expand-icon-cell {
   width: 50px !important;
 }
-.ant-table-column-sorters {
-  display: flex;
-  justify-content: space-evenly;
-}
 .ant-table-column-sorter-inner {
   display: flex;
   flex-direction: column;
 }
 .anticon svg {
   font-size: 14px;
+}
+.ant-table-column-sorter-up.active, .ant-table-column-sorter-down.active {
   color: $darkestgrey;
 }
 .ant-tooltip {
