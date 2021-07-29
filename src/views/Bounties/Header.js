@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 //Design imports
-import { ReactComponent as TellorBounties } from "./bountiesAssets/tellorbounties_renogare.svg";
-import { Button } from "antd";
-//Component imports
-import Welcome from "./Welcome.js";
+import { Button, Collapse } from "antd";
 
 function Header({ rawData }) {
   const [tellorBountiesAvailableData, setTellorBountiesAvailableData] =
     useState();
+  const [changePanelKey, setChangePanelKey] = useState("1");
+  const [changeButtonText, setChangeButtonText] = useState(true);
+
+  //Panel instantiation
+  const { Panel } = Collapse;
 
   //useEffect to call the Sheety API to render proper amount of available Tellor Bounties
   useEffect(() => {
@@ -17,49 +19,97 @@ function Header({ rawData }) {
           setTellorBountiesAvailableData(bounty);
         }
       });
-
-    //Modal Pop-Up after 2 seconds
-    setTimeout(() => {
-      const modal = document.getElementById("Modal");
-      modal.classList.add("fadeIn");
-      modal.style.display = "block";
-    }, 2000);
-    setTimeout(() => {
-      const modal = document.getElementById("Modal");
-      modal.classList.remove("fadeIn");
-    }, 4000);
   }, [rawData]);
 
-  //Modal Open/Close Functions
-  const openModal = () => {
-    const modal = document.getElementById("Modal");
-    modal.style.display = "block";
-  };
-  const closeModal = () => {
-    const modal = document.getElementById("Modal");
-    modal.style.display = "none";
+  const togglePanel = () => {
+    if (changePanelKey === "0") {
+      setChangePanelKey("1");
+      setChangeButtonText(!changeButtonText);
+    } else if (changePanelKey === "1") {
+      setChangePanelKey("0");
+      setChangeButtonText(!changeButtonText);
+    }
   };
 
   return (
-    <div className="Header">
-      <TellorBounties className="Header__Logo" />
-      <div className="Available__Bounties">
-        <h2>Available Bounties</h2>
-        <Button id="Special__Button">
-          {tellorBountiesAvailableData && tellorBountiesAvailableData.tributes}
-        </Button>
-        <h4>
-          {tellorBountiesAvailableData &&
-            tellorBountiesAvailableData.description}
-        </h4>
+    <>
+      <div className="Header">
+        <section className="headerSection">
+          <h2>Bounties</h2>
+          <h3>{`Currently available in bounties: ${
+            tellorBountiesAvailableData
+              ? tellorBountiesAvailableData.tributes + " USD"
+              : "Loading..."
+          }`}</h3>
+          <div className="headerGroundRules">
+            <p>
+              The Tellor Bounties program is a way to reward developers who help
+              us build out Tellor. <br /> We have a dev fund that's for
+              developing Tellor and we plan to use it!
+            </p>
+            <Button id="openPanelButton" onClick={togglePanel}>
+              {changeButtonText ? "Read Ground Rules" : "Hide Ground Rules"}
+            </Button>
+          </div>
+        </section>
       </div>
-      <Button id="openModalButton" onClick={openModal}>
-        Ground Rules
-      </Button>
-      <div id="Modal" className="Modal">
-        <Welcome closeModal={closeModal} />
-      </div>
-    </div>
+      <section className="panel">
+        <Collapse defaultActiveKey={["0"]}>
+          <Panel key={changePanelKey}>
+            <div className="groundRules">
+              <div className="panelRowsSpecial">
+                <h3>Tellor Bounties Ground Rules</h3>
+                <p>Welcome Tellor Developers and Bounty Hunters!</p>
+              </div>
+              <div className="panelRows">
+                <h3>How do I get started?</h3>
+                <p>
+                  Scroll down to see available bounties, and see if anything
+                  tickles your fancy and then shoot me an email to find out
+                  more.
+                  <br />
+                  If it says yes, it's "available"! Then you can email me and
+                  I'll say it's yours. If you want to help someone else working
+                  on one not available, then also ask and I'll see if its a fit.
+                  <br />
+                  If you're building something else that's open source and fits
+                  with our mission...tell me to add it and lets keep building
+                  this out.
+                </p>
+              </div>
+              <div className="panelRows">
+                <h3>What this is NOT.</h3>
+                <p>
+                  This is not us paying teams to get this done. We're not
+                  selling off our dev share or hiring contractors. Instead, we
+                  want the community to become part of completing the network's
+                  development need.
+                  <br />
+                  The rewards should be seen as just bonuses for helping to
+                  build out Tellor, not nessecarily a salary or a fair market
+                  value for the work.
+                  <br />
+                  It's also not some anonymous thing. If you want the reward,
+                  you have to let me know you're working on it. Hell, let
+                  discord and the Tellor channel know you're on it. We want you
+                  to work on it alone, with people, and with the team.
+                </p>
+              </div>
+              <div className="panelRows">
+                <h3>Disclaimer!</h3>
+                <p>
+                  This is crypto...no promises or guarantees in any way. Rewards
+                  are subject to change given price changes.
+                </p>
+              </div>
+              <p className="panelClose" onClick={togglePanel}>
+                close ground rules
+              </p>
+            </div>
+          </Panel>
+        </Collapse>
+      </section>
+    </>
   );
 }
 
