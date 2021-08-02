@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 //Design imports
 import { Button, Collapse } from "antd";
 
-function Header({ rawData }) {
+function BountiesHeader({ rawData }) {
   const [tellorBountiesAvailableData, setTellorBountiesAvailableData] =
     useState();
   const [changePanelKey, setChangePanelKey] = useState("1");
@@ -112,4 +112,4 @@ function Header({ rawData }) {
   );
 }
 
-export default Header;
+export default BountiesHeader;

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./Bounties.scss";
 import Icons from "../../Icons";
 //Ant D imports
-import { Button, Table } from "antd";
+import { Button, Table,Collapse } from "antd";
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 //Component Imports
-import Header from "./Header.js";
+import BountiesHeader from "./BountiesHeader.js";
 import ClaimModal from "./ClaimModal.js";
+
+const { Panel } = Collapse;
 
 function Bounties() {
   let initialJobForm = {
@@ -17,6 +19,7 @@ function Bounties() {
   const [rawData, setRawData] = useState();
   const [bountiesData, setBountiesData] = useState();
   const [jobForm, setJobForm] = useState(initialJobForm);
+  const [claimerPanels, setPanelsArr] = useState([]);
 
   //useEffect to populate the table with data from the Sheety API
   useEffect(() => {
@@ -96,25 +99,38 @@ function Bounties() {
   ];
 
   //Claim Modal Function
-  const openClaimModal = () => {
-    const claimModal = document.getElementById("claimModal");
-    claimModal.style.display = "block";
-  };
+  // const openClaimModal = () => {
+  //   const claimModal = document.getElementById("claimModal");
+  //   claimModal.style.display = "block";
+  // };
   //Window function to help close modals
-  window.onclick = (event) => {
-    const claimModal = document.getElementById("claimModal");
-    const modal = document.getElementById("Modal");
-    if (event.target === claimModal) {
-      claimModal.style.display = "none";
-    } else if (event.target === modal) {
-      modal.style.display = "none";
+  // window.onclick = (event) => {
+  //   const claimModal = document.getElementById("claimModal");
+  //   const modal = document.getElementById("Modal");
+  //   if (event.target === claimModal) {
+  //     claimModal.style.display = "none";
+  //   } else if (event.target === modal) {
+  //     modal.style.display = "none";
+  //   }
+  // };
+
+  const addtoClaimerPanels = (e) => {
+    const arr = [...claimerPanels];
+    if(arr.includes(e)){
+        const index = arr.indexOf(e);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+    } else {
+        arr.push(e);
     }
-  };
+    setPanelsArr(arr);
+}
 
   return (
-    <div>
-      <div className="App__Container">
-        <Header rawData={rawData} />
+    <div className="Bounties">
+      <section className="contentSection">
+        <BountiesHeader rawData={rawData} />
         <Table
           pagination={false}
           columns={columns}
@@ -129,27 +145,43 @@ function Bounties() {
             };
           }}
           expandable={{
-            expandedRowRender: (record) => (
-              <>
-                <p style={{ margin: 0 }}>
-                  Description: {record.description ? record.description : "N/A"}
-                </p>
-                <p style={{ margin: 0 }}>
-                  Necessary Skill(s): {record.skills ? record.skills : "N/A"}
-                </p>
-                {record.notes ? (
-                  <p style={{ margin: 0 }}>
-                    {" "}
-                    Notes:{" "}
-                    <a style={{ marginLeft: "5px" }} href={record.notes}>
-                      {record.notes}
-                    </a>
-                  </p>
-                ) : null}
-                <Button id="claimModalButton" onClick={openClaimModal}>
-                  Claim
-                </Button>
-              </>
+            expandedRowRender: (record,i) => (
+              <div className="bountieExpanded">
+                <div className="firstRow">
+                  <div>
+                    <p style={{ margin: 0 }}>
+                      {record.description ? record.description : "N/A"}
+                    </p>
+                    <div className="smallestMargin"></div>
+                    <p style={{ margin: 0 }}>
+                      <span className="bold">Necessary Skill(s):</span> {record.skills ? record.skills : "N/A"}
+                    </p>
+                    {record.notes ? (
+                      <p style={{ margin: 0 }}>
+                        {" "}
+                        <span className="bold">Notes:{" "}</span>
+                        <a style={{ marginLeft: "5px" }} href={record.notes}>
+                          {record.notes}
+                        </a>
+                      </p>
+                    ) : null}
+                  </div>
+                  <Button id="claimModalButton" onClick={() => addtoClaimerPanels(i)}>
+                    Claim this bounty
+                  </Button>
+                </div>
+
+                <div>
+                <Collapse
+                defaultActiveKey={["0"]}
+                activeKey={claimerPanels}>
+                <Panel header="Bracket panel" key={i}>
+                    <p>hehhe {i}</p>
+                    </Panel>
+                  </Collapse>
+                </div>
+
+              </div>
             ),
             expandIcon: ({ expanded, onExpand, record }) =>
               expanded ? (
@@ -162,7 +194,8 @@ function Bounties() {
           expandIconColumnIndex={4}
           dataSource={bountiesData}
         />
-      </div>
+
+      </section>
       <div id="claimModal" className="Claim__Modal">
         <ClaimModal jobForm={jobForm} />
       </div>

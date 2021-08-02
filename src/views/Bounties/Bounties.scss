@@ -114,37 +114,31 @@ body {
   }
 }
 
-// Styles for App.js
-.App__Container {
-  @include centeredcolumn();
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 3%;
-  padding: 50px 190px 0 190px;
-}
 // Styles for Header.js
-.Header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+
+.Bounties .contentTxt {
+  max-width: 100%;
   width: 100%;
 }
-.headerSection {
+
+.bountiesAvailable {
   width: 100%;
-  margin-bottom: 20px;
-  h3 {
-    font-size: 1.3rem;
-    letter-spacing: 0.05rem;
-  }
+
 }
+.bountiesAvailable h3 {
+  color: #333333;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 20px 0 !important;
+}
+
 .headerGroundRules {
-  display: flex;
-  justify-content: space-between;
+  @include leftrow;
+  align-items: flex-start;
   width: 100%;
   p {
-    font-size: 1rem;
-    font-weight: 300;
+    flex: 1;
   }
 }
 
@@ -157,9 +151,31 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: $background;
   padding: 1% 4% 0 4%;
   width: 92%;
+}
+.bountieExpanded {
+  @include leftcolumn;
+  background:white;
+  margin: -1px 0 -1px 0;
+  border-bottom: 2px solid $darkestgrey;
+  padding: 15px 0px 40px 30px;
+}
+
+.bountieExpanded .firstRow {
+  @include leftrow;
+  width: 100%;
+  margin: 0 0 50px 0;
+  > div:first-child {
+  flex: 1;
+  }
+}
+
+.smallestMargin {
+  margin: 0 0 12px 0;
+}
+.bold {
+  font-weight: bold;
 }
 .panelRowsSpecial {
   p {
@@ -394,7 +410,6 @@ body {
   display: none;
 }
 .ant-collapse-content {
-  background-color: $background;
   border: none;
 }
 .ant-collapse-content > .ant-collapse-content-box {
@@ -426,6 +441,13 @@ body {
   padding: 20px 16px;
   border-bottom: 1px solid #999999;
 }
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: none;
+}
+.ant-table-expanded-row > td {
+  padding: 0 !important;
+}
+
 .ant-table-tbody > tr > td > p {
   @include leftrow();
   @include sixteenpxfont();
