@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Bounties.scss";
 import Icons from "../../Icons";
 //Ant D imports
-import { Button, Table,Collapse } from "antd";
+import { Button, Table, Collapse } from "antd";
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 //Component Imports
 import BountiesHeader from "./BountiesHeader.js";
@@ -69,29 +69,27 @@ function Bounties() {
     {
       title: "Title",
       dataIndex: "title",
-      width: '40%',
+      width: "40%",
     },
     {
       title: "Type",
       dataIndex: "jobType",
-      sorter:
-      {
+      sorter: {
         compare: (a, b) => a.jobType.localeCompare(b.jobType),
         multiple: 1,
       },
-      width: '25%',
+      width: "25%",
     },
     {
       title: "Availability",
       dataIndex: "available",
-      width: '15%',
+      width: "15%",
     },
     {
       title: "Reward",
       dataIndex: "tributes",
-      width: '15%',
-      sorter:
-      {
+      width: "15%",
+      sorter: {
         compare: (a, b) => a.tributes - b.tributes,
         multiple: 1,
       },
@@ -116,16 +114,16 @@ function Bounties() {
 
   const addtoClaimerPanels = (e) => {
     const arr = [...claimerPanels];
-    if(arr.includes(e)){
-        const index = arr.indexOf(e);
-        if (index > -1) {
-            arr.splice(index, 1);
-        }
+    if (arr.includes(e)) {
+      const index = arr.indexOf(e);
+      if (index > -1) {
+        arr.splice(index, 1);
+      }
     } else {
-        arr.push(e);
+      arr.push(e);
     }
     setPanelsArr(arr);
-}
+  };
 
   return (
     <div className="Bounties">
@@ -145,7 +143,7 @@ function Bounties() {
             };
           }}
           expandable={{
-            expandedRowRender: (record,i) => (
+            expandedRowRender: (record, i) => (
               <div className="bountieExpanded">
                 <div className="firstRow">
                   <div>
@@ -154,33 +152,34 @@ function Bounties() {
                     </p>
                     <div className="smallestMargin"></div>
                     <p style={{ margin: 0 }}>
-                      <span className="bold">Necessary Skill(s):</span> {record.skills ? record.skills : "N/A"}
+                      <span className="bold">Necessary Skill(s):</span>{" "}
+                      {record.skills ? record.skills : "N/A"}
                     </p>
                     {record.notes ? (
                       <p style={{ margin: 0 }}>
                         {" "}
-                        <span className="bold">Notes:{" "}</span>
+                        <span className="bold">Notes: </span>
                         <a style={{ marginLeft: "5px" }} href={record.notes}>
                           {record.notes}
                         </a>
                       </p>
                     ) : null}
                   </div>
-                  <Button id="claimModalButton" onClick={() => addtoClaimerPanels(i)}>
+                  <Button
+                    id="claimModalButton"
+                    onClick={() => addtoClaimerPanels(i)}
+                  >
                     Claim this bounty
                   </Button>
                 </div>
 
-                <div>
-                <Collapse
-                defaultActiveKey={["0"]}
-                activeKey={claimerPanels}>
-                <Panel header="Bracket panel" key={i}>
-                    <p>hehhe {i}</p>
+                <div className="claimForm">
+                  <Collapse defaultActiveKey={["0"]} activeKey={claimerPanels}>
+                    <Panel header="Bracket panel" key={i}>
+                      <ClaimModal jobForm={jobForm} />
                     </Panel>
                   </Collapse>
                 </div>
-
               </div>
             ),
             expandIcon: ({ expanded, onExpand, record }) =>
@@ -194,11 +193,7 @@ function Bounties() {
           expandIconColumnIndex={4}
           dataSource={bountiesData}
         />
-
       </section>
-      <div id="claimModal" className="Claim__Modal">
-        <ClaimModal jobForm={jobForm} />
-      </div>
       <section className="ButtonSection">
         <p className="smoltxt">Want to reach out?</p>
         <a href="https://discord.gg/n7drGjh" alt="link to Tellor on Discord">
