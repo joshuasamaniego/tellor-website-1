@@ -34,22 +34,24 @@ function BountiesHeader({ rawData }) {
   return (
     <>
       <div className="contentTxt">
-          <h2>Bounties</h2>
-          <div className="bountiesAvailable"><h3>{`Currently available in bounties: ${
+        <h2>Bounties</h2>
+        <div className="bountiesAvailable">
+          <h3>{`Currently available in bounties: ${
             tellorBountiesAvailableData
               ? tellorBountiesAvailableData.tributes + " USD"
               : "Loading..."
-          }`}</h3></div>
-          <div className="headerGroundRules">
-            <p>
-              The Tellor Bounties program is a way to reward developers who help
-              us build out Tellor. <br /> We have a dev fund that's for
-              developing Tellor and we plan to use it!
-            </p>
-            <Button id="openPanelButton" onClick={togglePanel}>
-              {changeButtonText ? "Read Ground Rules" : "Hide Ground Rules"}
-            </Button>
-          </div>
+          }`}</h3>
+        </div>
+        <div className="headerGroundRules">
+          <p>
+            The Tellor Bounties program is a way to reward developers who help
+            us build out Tellor. We have a dev fund that's for developing Tellor
+            and we plan to use it!
+          </p>
+          <Button id="openPanelButton" onClick={togglePanel}>
+            {changeButtonText ? "Read Ground Rules" : "Hide Ground Rules"}
+          </Button>
+        </div>
       </div>
 
       <section className="panel">

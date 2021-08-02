@@ -20,6 +20,7 @@ function Bounties() {
   const [bountiesData, setBountiesData] = useState();
   const [jobForm, setJobForm] = useState(initialJobForm);
   const [claimerPanels, setPanelsArr] = useState([]);
+  const [buttonText, toggleButtonText] = useState(true);
 
   //useEffect to populate the table with data from the Sheety API
   useEffect(() => {
@@ -118,9 +119,11 @@ function Bounties() {
       const index = arr.indexOf(e);
       if (index > -1) {
         arr.splice(index, 1);
+        toggleButtonText(!buttonText);
       }
     } else {
       arr.push(e);
+      toggleButtonText(!buttonText);
     }
     setPanelsArr(arr);
   };
@@ -169,7 +172,7 @@ function Bounties() {
                     id="claimModalButton"
                     onClick={() => addtoClaimerPanels(i)}
                   >
-                    Claim this bounty
+                    {buttonText ? "Claim this bounty" : "Close"}
                   </Button>
                 </div>
 

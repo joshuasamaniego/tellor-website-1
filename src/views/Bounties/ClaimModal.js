@@ -98,11 +98,6 @@ function ClaimModal({ jobForm }) {
 
   return (
     <div className="Claim">
-      <div className="CF__Error">
-        <h5>{errors.firstName}</h5>
-        <h5>{errors.lastName}</h5>
-        <h5>{errors.email}</h5>
-      </div>
       <form className="Claim__Form">
         <div className="nondisplay">
           <div className="CF__Input__Container">
@@ -134,6 +129,9 @@ function ClaimModal({ jobForm }) {
               name="firstName"
               placeholder="Required"
             />
+            <div className="CF__Error">
+              <h5>{errors.firstName}</h5>
+            </div>
           </div>
           <div className="CF__Input__Container">
             <label htmlFor="lastName">Last Name</label>
@@ -144,6 +142,9 @@ function ClaimModal({ jobForm }) {
               name="lastName"
               placeholder="Required"
             />
+            <div className="CF__Error">
+              <h5>{errors.lastName}</h5>
+            </div>
           </div>
         </div>
         <div className="CF__Long__Input">
@@ -156,6 +157,9 @@ function ClaimModal({ jobForm }) {
             className="Claim__Modal__Input"
             placeholder="Required"
           />
+        </div>
+        <div className="CF__Error">
+          <h5>{errors.email}</h5>
         </div>
         <div className="CF__Double__Container">
           <div className="CF__Input__Container">
