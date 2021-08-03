@@ -1,7 +1,4 @@
 /// Tellor Bounties SCSS ////
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap");
-@import "variables";
 @import "../../App.scss";
 
 .Bounties {
@@ -11,118 +8,7 @@
   width: 100%;
 }
 
-$background: #fafafa;
-$tellor-grey1: #f2f2f2;
-$tellor-grey2: #f0f0f0;
-$darkestgrey: #555555;
-$tellor-green: #2dfc9f;
-
-/* gradient mixins */
-@mixin greenshine {
-  background: $tellor-green;
-  background: linear-gradient(90deg, #2dfc9f 0%, #00fb89 100%);
-}
-
-@mixin boxShadow {
-  box-shadow: inset -1px 1px 2px rgba(204, 204, 204, 0.2),
-    inset 1px -1px 2px rgba(204, 204, 204, 0.2),
-    inset -1px -1px 2px rgba(255, 255, 255, 0.9),
-    inset 1px 1px 3px rgba(204, 204, 204, 0.9);
-}
-
-/* font mixins */
-@mixin tenpxfont {
-  font-size: 0.625rem !important;
-  line-height: 0.85rem !important;
-}
-
-@mixin twelvepxfont {
-  font-size: 0.75rem !important;
-  line-height: 1rem !important;
-}
-
-@mixin fourteenpxfont {
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-}
-
-@mixin sixteenpxfont {
-  font-size: 1rem !important;
-  line-height: 1.5rem !important;
-}
-
-@mixin eighteenpxfont {
-  font-size: 1.125rem !important;
-  line-height: 1.75rem !important;
-}
-
-/* general mixins */
-@mixin centeredrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin centeredcolumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin leftrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-@mixin leftcolumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-@mixin rightrow {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-@mixin rightcolumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-body {
-  color: black;
-  font-family: "Roboto", sans-serif;
-}
-
-/* general classes */
-.fadeIn {
-  animation: 1s ease-in fadeIn;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  100% {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-// Styles for Header.js
-
+// Styles for BountiesHeader.js
 .Bounties .contentTxt {
   max-width: 100%;
   width: 100%;
@@ -160,6 +46,7 @@ body {
   justify-content: flex-start;
   padding: 1% 4% 0 4%;
   width: 92%;
+  border-left: 2px solid $tellor-grey1;
 }
 .bountieExpanded {
   @include leftcolumn;
@@ -172,7 +59,7 @@ body {
 .bountieExpanded .firstRow {
   @include leftrow;
   width: 100%;
-  margin: 0 0 50px 0;
+  margin: 0 0 15px 0;
   > div:first-child {
     flex: 1;
   }
@@ -227,10 +114,8 @@ body {
   }
 }
 .Claim {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1% 4%;
+  @include centeredcolumn;
+  padding: 0;
 }
 .nondisplay {
   display: none;
@@ -245,8 +130,7 @@ body {
   color: red;
 }
 .Claim__Form {
-  @include centeredcolumn();
-  padding: 2%;
+  @include centeredcolumn;
   width: 100%;
   font-family: "Roboto";
   &::placeholder {
@@ -267,17 +151,17 @@ body {
     margin-right: 1%;
   }
   input {
-    @include boxShadow();
+    border: 1px solid rgba(#999999,0.4);
     width: 100%;
     height: 42px;
     display: flex;
     justify-content: space-between;
-    border: none;
-    border-radius: 10px;
+    border-radius: 0;
     padding-left: 10px;
 
     &:focus {
       outline: none;
+      border: 1px solid $darkestgrey;
     }
   }
 }
@@ -288,34 +172,35 @@ body {
   margin: 0 1.5%;
 
   input {
-    @include boxShadow();
+    border: 1px solid rgba(#999999,0.4);
     width: 100%;
     height: 42px;
-    border: none;
-    border-radius: 10px;
+    border-radius: 0;
     padding-left: 10px;
 
     &:focus {
       outline: none;
+      border: 1px solid $darkestgrey;
     }
   }
   textarea {
-    @include boxShadow();
+    border: 1px solid rgba(#999999,0.4);
     width: 100%;
     height: 100px;
-    border: none;
-    border-radius: 10px;
+    border-radius: 0;
     padding: 10px;
     font-family: "Roboto";
     resize: none;
 
     &:focus {
       outline: none;
+      border: 1px solid $darkestgrey;
     }
   }
 }
 .Claim__Button {
   margin-top: 5%;
+  justify-self: end;
   &:hover,
   &:focus {
     cursor: pointer;
@@ -326,121 +211,6 @@ body {
   }
 }
 
-// --- Ant D Overrides ---
-
-// Buttons
-.ant-btn {
-  @include sixteenpxfont;
-  @include greenshine;
-  color: $darkestgrey;
-  box-sizing: border-box;
-  padding: 14px 40px 18px 40px;
-  height: 50px;
-  transition: all 0.025s linear;
-
-  @media (max-width: 965px) {
-    padding: 12px 30px;
-    height: 40px;
-    @include fourteenpxfont;
-  }
-
-  width: auto;
-  border: none;
-  border-radius: 25px;
-  font-weight: bold;
-
-  &:disabled {
-    @include greenshine;
-
-    span {
-      opacity: 0.5;
-    }
-  }
-
-  &:hover,
-  &:focus {
-    color: $darkestgrey;
-    @include greenshine;
-    border: none;
-    outline: none;
-  }
-
-  &:active {
-    transform: scale(0.995);
-  }
-}
-// Collapse
-.ant-collapse {
-  border: none;
-  border-left: 2px solid $tellor-grey1;
-}
-.ant-collapse > .ant-collapse-item {
-  border: none;
-}
-.ant-collapse-header {
-  display: none;
-}
-.ant-collapse-content {
-  border: none;
-}
-.ant-collapse-content > .ant-collapse-content-box {
-  padding: 0;
-}
-// Table
-.ant-table-wrapper {
-  margin-bottom: 3%;
-  display: flex;
-  justify-content: space-evenly;
-  font-weight: 300;
-  width: 100%;
-}
-.ant-spin-nested-loading {
-  width: 100%;
-}
-.ant-table {
-  @include eighteenpxfont();
-  width: 100%;
-}
-.ant-table-thead {
-  background: $tellor-grey1;
-}
-.ant-table-thead > tr > th {
-  font-weight: 100;
-}
-.ant-table-tbody > tr > td {
-  padding: 20px 16px;
-  border-bottom: 1px solid #999999;
-}
-.ant-table-tbody > tr.ant-table-row:hover > td {
-  background: none;
-}
-.ant-table-expanded-row > td {
-  padding: 0 !important;
-}
-
-.ant-table-tbody > tr > td > p {
-  @include leftrow();
-  @include sixteenpxfont();
-  padding: 1% 0 1% 10%;
-  background: $tellor-grey1;
-}
-.ant-table-row-expand-icon-cell {
-  width: 50px !important;
-}
-.ant-table-column-sorter-inner {
-  display: flex;
-  flex-direction: column;
-}
-.anticon svg {
-  font-size: 14px;
-}
-.ant-table-column-sorter-up.active,
-.ant-table-column-sorter-down.active {
-  color: $darkestgrey;
-}
-.ant-tooltip {
-  display: none;
-}
 
 /* QUERIES */
 

@@ -10,12 +10,93 @@
   src: local('Renogare Soft Regular'), url(./fonts/RenogareSoft-Regular.woff) format('woff');
 }
 
-$greentxt: #20F092;
-$brightgreen: #00FB89;
+$background: #fafafa;
+$tellor-grey1: #f2f2f2;
+$tellor-grey2: #f0f0f0;
 $greylink: #999999;
-$grey555: #555555;
+$darkestgrey: #555555;
 $blackish: #333333;
 
+$brightgreen: #00FB89;
+$greentxt: #20F092;
+$tellor-green: #2dfc9f;
+
+
+/* gradient mixins */
+@mixin greenshine {
+  background: $tellor-green;
+  background: linear-gradient(90deg, #2dfc9f 0%, #00fb89 100%);
+}
+
+
+/* font mixins */
+@mixin tenpxfont {
+  font-size: 0.625rem !important;
+  line-height: 0.85rem !important;
+}
+
+@mixin twelvepxfont {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
+
+@mixin fourteenpxfont {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+@mixin sixteenpxfont {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
+@mixin eighteenpxfont {
+  font-size: 1.125rem !important;
+  line-height: 1.75rem !important;
+}
+
+/* general mixins */
+@mixin centeredrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centeredcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin leftrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin leftcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@mixin rightrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin rightcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
 
 @mixin font {
   font-family: 'Roboto', sans-serif;
@@ -42,6 +123,9 @@ $blackish: #333333;
 }
 
 
+
+
+/* Specifics */
 .App {
   @include font;
 }
@@ -55,7 +139,124 @@ h2 {
   font-size: 1.7rem;
   line-height: 2.25rem;
   font-weight: 300;
-  color: $grey555;
+  color: $blackish;
+}
+
+
+
+// --- Ant D Overrides ---
+
+// Buttons
+.ant-btn {
+  @include sixteenpxfont;
+  @include greenshine;
+  color: $darkestgrey;
+  box-sizing: border-box;
+  padding: 14px 40px 18px 40px;
+  height: 50px;
+  transition: all 0.025s linear;
+
+  @media (max-width: 965px) {
+    padding: 12px 30px;
+    height: 40px;
+    @include fourteenpxfont;
+  }
+
+  width: auto;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+
+  &:disabled {
+    @include greenshine;
+
+    span {
+      opacity: 0.5;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $darkestgrey;
+    @include greenshine;
+    border: none;
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.995);
+  }
+}
+// Collapse
+.ant-collapse {
+  border: none;
+}
+.ant-collapse > .ant-collapse-item {
+  border: none;
+}
+.ant-collapse-header {
+  display: none;
+}
+.ant-collapse-content {
+  border: none;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0;
+}
+// Table
+.ant-table-wrapper {
+  margin-bottom: 3%;
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: 300;
+  width: 100%;
+}
+.ant-spin-nested-loading {
+  width: 100%;
+}
+.ant-table {
+  @include eighteenpxfont();
+  width: 100%;
+}
+.ant-table-thead {
+  background: $tellor-grey1;
+}
+.ant-table-thead > tr > th {
+  font-weight: 100;
+}
+.ant-table-tbody > tr > td {
+  padding: 20px 16px;
+  border-bottom: 1px solid #999999;
+}
+.ant-table-tbody > tr.ant-table-row:hover > td {
+  background: none;
+}
+.ant-table-expanded-row > td {
+  padding: 0 !important;
+}
+
+.ant-table-tbody > tr > td > p {
+  @include leftrow();
+  @include sixteenpxfont();
+  padding: 1% 0 1% 10%;
+  background: $tellor-grey1;
+}
+.ant-table-row-expand-icon-cell {
+  width: 50px !important;
+}
+.ant-table-column-sorter-inner {
+  display: flex;
+  flex-direction: column;
+}
+.anticon svg {
+  font-size: 14px;
+}
+.ant-table-column-sorter-up.active,
+.ant-table-column-sorter-down.active {
+  color: $darkestgrey;
+}
+.ant-tooltip {
+  display: none;
 }
 
 .ant-btn-lg {
@@ -84,13 +285,13 @@ button[disabled]:hover {
 }
 
 .greenbtn, .greenbtn:hover, .greenbtn:active {
-  color: $grey555 !important;
+  color: $darkestgrey !important;
   background: rgb(45,252,159) !important;
   background: linear-gradient(90deg, rgba(45,252,159,1) 0%, rgba(64,249,165,1) 28%, rgba(30,250,150,1) 64%, rgba(0,251,137,1) 100%) !important;
 }
 
 .whitebtn, .whitebtn:hover, .whitebtn:active {
-  color: $grey555 !important;
+  color: $darkestgrey !important;
   background: rgb(255,255,255) !important;
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(252,252,252,1) 100%) !important;
 }
@@ -109,7 +310,7 @@ a.txtlink {
 
 .smoltxt {
   font-size: 1rem;
-  color: $grey555;
+  color: $darkestgrey;
   font-weight: 300;
 }
 
@@ -185,7 +386,7 @@ a.txtlink {
     font-size: 1.375rem;
     line-height: 1.875rem;
     font-weight: 300;
-    color: $grey555;
+    color: $darkestgrey;
   }  
   .ant-btn-lg {
     font-size: 1rem !important;
@@ -221,7 +422,7 @@ a.txtlink {
     font-size: 1.75rem;
     line-height: 2.5rem;
     font-weight: 300;
-    color: $grey555;
+    color: $darkestgrey;
   }  
   .contentSection {
     padding: 20px 80px 0 80px;
