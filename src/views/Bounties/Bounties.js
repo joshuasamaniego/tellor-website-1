@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Bounties.scss";
 import Icons from "../../Icons";
+import { useMediaQuery } from 'react-responsive';
+
 //Ant D imports
 import { Button, Table, Collapse } from "antd";
 import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
@@ -9,6 +11,7 @@ import BountiesHeader from "./BountiesHeader.js";
 import ClaimModal from "./ClaimModal.js";
 
 const { Panel } = Collapse;
+
 
 function Bounties() {
   let initialJobForm = {
@@ -21,6 +24,7 @@ function Bounties() {
   const [jobForm, setJobForm] = useState(initialJobForm);
   const [claimerPanels, setPanelsArr] = useState([]);
   const [buttonText, toggleButtonText] = useState(true);
+  const isMobile = useMediaQuery({query: '(max-width: 810px)'})
 
   //useEffect to populate the table with data from the Sheety API
   useEffect(() => {
@@ -94,24 +98,41 @@ function Bounties() {
         compare: (a, b) => a.tributes - b.tributes,
         multiple: 1,
       },
+      // render: tributes => tributes+" TRB",
+      render: (tributes) => {
+        if (tributes === "Various") {
+          return tributes;
+        } else {
+          return tributes+" TRB";
+        }
+      },
     },
   ];
 
-  //Claim Modal Function
-  // const openClaimModal = () => {
-  //   const claimModal = document.getElementById("claimModal");
-  //   claimModal.style.display = "block";
-  // };
-  //Window function to help close modals
-  // window.onclick = (event) => {
-  //   const claimModal = document.getElementById("claimModal");
-  //   const modal = document.getElementById("Modal");
-  //   if (event.target === claimModal) {
-  //     claimModal.style.display = "none";
-  //   } else if (event.target === modal) {
-  //     modal.style.display = "none";
-  //   }
-  // };
+  const columns_mobile = [
+    {
+      title: "Title",
+      dataIndex: "title",
+      width: "70%",
+    },
+    {
+      title: "Reward",
+      dataIndex: "tributes",
+      width: "10%",
+      sorter: {
+        compare: (a, b) => a.tributes - b.tributes,
+        multiple: 1,
+      },
+      // render: tributes => tributes+" TRB",
+      render: (tributes) => {
+        if (tributes === "Various") {
+          return tributes;
+        } else {
+          return tributes+" TRB";
+        }
+      },
+    },
+  ];
 
   const addtoClaimerPanels = (e) => {
     const arr = [...claimerPanels];
@@ -134,7 +155,7 @@ function Bounties() {
         <BountiesHeader rawData={rawData} />
         <Table
           pagination={false}
-          columns={columns}
+          columns={isMobile?columns_mobile:columns}
           onRow={(record) => {
             return {
               onClick: () => {
@@ -154,6 +175,14 @@ function Bounties() {
                       {record.description ? record.description : "N/A"}
                     </p>
                     <div className="smallestMargin"></div>
+                    <p style={{ margin: 0 }}>
+                      <span className="bold">Availability:</span>{" "}
+                      {record.available ? record.available : "N/A"}
+                    </p>
+                    <p style={{ margin: 0 }}>
+                      <span className="bold">Type:</span>{" "}
+                      {record.jobType ? record.jobType : "N/A"}
+                    </p>
                     <p style={{ margin: 0 }}>
                       <span className="bold">Necessary Skill(s):</span>{" "}
                       {record.skills ? record.skills : "N/A"}
