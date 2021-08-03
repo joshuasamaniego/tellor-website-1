@@ -71,12 +71,6 @@ function ClaimModal({ jobForm }) {
     validateFormChange(e);
   };
 
-  //Close Claim Modal function that also resets error messages
-  const closeClaimModal = () => {
-    const claimModal = document.getElementById("claimModal");
-    claimModal.style.display = "none";
-    setErrors(initialErrorValues);
-  };
   //Chain of functions that run when user hits the submit button
   const handleFormSubmit = (e, formData) => {
     e.preventDefault();
@@ -100,22 +94,12 @@ function ClaimModal({ jobForm }) {
 
     //Setting formValues back to normal and closing the modal
     setFormValues(initialFormValues);
-    closeClaimModal();
   };
 
   return (
     <div className="Claim">
-      <div className="Claim__Header">
-        <h1>Claim a Bounty!</h1>
-        <span onClick={closeClaimModal}>&times;</span>
-      </div>
-      <div className="CF__Error">
-        <h5>{errors.firstName}</h5>
-        <h5>{errors.lastName}</h5>
-        <h5>{errors.email}</h5>
-      </div>
       <form className="Claim__Form">
-        <div className="CF__Double__Container">
+        <div className="nondisplay">
           <div className="CF__Input__Container">
             <label htmlFor="jobTitle">Job Title</label>
             <input
@@ -143,8 +127,11 @@ function ClaimModal({ jobForm }) {
               value={formValues.firstName}
               type="text"
               name="firstName"
-              placeholder="First Name - REQUIRED"
+              placeholder="Required"
             />
+            <div className="CF__Error">
+              <h5>{errors.firstName}</h5>
+            </div>
           </div>
           <div className="CF__Input__Container">
             <label htmlFor="lastName">Last Name</label>
@@ -153,8 +140,11 @@ function ClaimModal({ jobForm }) {
               value={formValues.lastName}
               type="text"
               name="lastName"
-              placeholder="Last Name - REQUIRED"
+              placeholder="Required"
             />
+            <div className="CF__Error">
+              <h5>{errors.lastName}</h5>
+            </div>
           </div>
         </div>
         <div className="CF__Long__Input">
@@ -165,8 +155,11 @@ function ClaimModal({ jobForm }) {
             name="email"
             value={formValues.email}
             className="Claim__Modal__Input"
-            placeholder="Enter Your Email - REQUIRED"
+            placeholder="Required"
           />
+        </div>
+        <div className="CF__Error">
+          <h5>{errors.email}</h5>
         </div>
         <div className="CF__Double__Container">
           <div className="CF__Input__Container">
@@ -176,7 +169,7 @@ function ClaimModal({ jobForm }) {
               value={formValues.discord}
               type="text"
               name="discord"
-              placeholder="Enter Your Discord Tag - OPTIONAL"
+              placeholder="Optional"
             />
           </div>
           <div className="CF__Input__Container">
@@ -186,7 +179,7 @@ function ClaimModal({ jobForm }) {
               value={formValues.telegram}
               type="text"
               name="telegram"
-              placeholder="Enter Your Telegram Handle - OPTIONAL"
+              placeholder="Optional"
             />
           </div>
         </div>
@@ -198,7 +191,7 @@ function ClaimModal({ jobForm }) {
             type="text"
             name="comments"
             className="Claim__Modal__Input"
-            placeholder="Add Your Comments Here - OPTIONAL"
+            placeholder="Optional"
           />
         </div>
         <Button

@@ -1,8 +1,8 @@
 import * as yup from "yup";
 
 const formSchema = yup.object().shape({
-  firstName: yup.string().required("First Name is required."),
-  lastName: yup.string().required("Last Name is required."),
+  firstName: yup.string().required("First name is required."),
+  lastName: yup.string().required("Last name is required."),
   email: yup
     .string()
     .matches(

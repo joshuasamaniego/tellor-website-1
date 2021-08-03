@@ -35,8 +35,9 @@ function BountiesHeader({ rawData }) {
   return (
     <>
       <div className="contentTxt">
-          <h2>Bounties</h2>
-          <div className="bountiesAvailable"><h3>{`Currently available in bounties: ${
+        <h2>Bounties</h2>
+        <div className="bountiesAvailable">
+          <h3>{`Currently available in bounties: ${
             tellorBountiesAvailableData
               ? tellorBountiesAvailableData.tributes + " USD"
               : "Loading..."
