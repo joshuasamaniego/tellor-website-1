@@ -5,8 +5,6 @@ import { Button, Collapse } from "antd";
 function BountiesHeader({ rawData }) {
   const [tellorBountiesAvailableData, setTellorBountiesAvailableData] =
     useState();
-  const [changePanelKey, setChangePanelKey] = useState("1");
-//   const [changeButtonText, setChangeButtonText] = useState(true);
   const [showPanel,toggleShowPanel] = useState(false);
   
   //Panel instantiation
