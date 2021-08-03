@@ -7,8 +7,12 @@
   justify-content: center;
   width: 100%;
 }
-
-// Styles for BountiesHeader.js
+.Bounties .contentSection {
+  padding: 50px 190px 60px 190px;
+}
+.Bounties .two_btns {
+  width: 710px !important;
+}
 .Bounties .contentTxt {
   max-width: 100%;
   width: 100%;
@@ -212,6 +216,9 @@
 }
 
 
+
+
+
 /* QUERIES */
 
 @media only screen and (max-width: 810px) {
@@ -239,6 +246,11 @@
       margin: 0 0 20px 0;
     }
   }
+
+  .Bounties .contentSection {
+    padding: 20px 50px 50px 50px;
+  }
+
 }
 
 @media only screen and (min-width: 1500px) {

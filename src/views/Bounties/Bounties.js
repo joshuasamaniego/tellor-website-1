@@ -227,13 +227,20 @@ function Bounties() {
         />
       </section>
       <section className="ButtonSection">
-        <p className="smoltxt">Want to reach out?</p>
-        <a href="https://discord.gg/n7drGjh" alt="link to Tellor on Discord">
+        <p className="smoltxt">Want to talk about bounties?</p>
+        <div className="two_btns">
+        <a href="mailto:nfett@tellor.io" alt="Mail Nick">
           <Button shape="round" size="large" className="whitebtn">
-            <Icons.Discord fill="#555555" />
-            Talk to us on Discord
+          Mail to nfett@tellor.io
           </Button>
         </a>
+        <a href="https://t.me/tellor" alt="Tellor on Telegram">
+          <Button shape="round" size="large" className="whitebtn">
+            <Icons.Telegram fill="#555555" />
+            @the_fett on Telegram
+          </Button>
+        </a>
+        </div>
       </section>
     </div>
   );
