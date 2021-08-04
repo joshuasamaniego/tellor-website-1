@@ -77,6 +77,15 @@ function Bounties() {
     {
       title: "Type",
       dataIndex: "jobType",
+      filters: [
+        { text: "Builds", value: "Builds" },
+        { text: "Content", value: "Content" },
+        { text: "Deeper Research", value: "Deeper Research" },
+        { text: "Documentation", value: "Documentation" },
+        { text: "Hacks", value: "Hacks" },
+        { text: "Various", value: "Various" },
+      ],
+      onFilter: (value, record) => record.jobType.includes(value),
       sorter: {
         compare: (a, b) => a.jobType.localeCompare(b.jobType),
         multiple: 1,
