@@ -163,53 +163,103 @@ function Bounties() {
             };
           }}
           expandable={{
-            expandedRowRender: (record, i) => (
-              <div className="bountieExpanded">
-                <div className="firstRow">
-                  <div>
-                    <p style={{ margin: 0 }}>
-                      {record.description ? record.description : "N/A"}
-                    </p>
-                    <div className="smallestMargin"></div>
-                    <p style={{ margin: 0 }}>
-                      <span className="bold">Availability:</span>{" "}
-                      {record.available ? record.available : "N/A"}
-                    </p>
-                    <p style={{ margin: 0 }}>
-                      <span className="bold">Type:</span>{" "}
-                      {record.jobType ? record.jobType : "N/A"}
-                    </p>
-                    <p style={{ margin: 0 }}>
-                      <span className="bold">Necessary Skill(s):</span>{" "}
-                      {record.skills ? record.skills : "N/A"}
-                    </p>
-                    {record.notes ? (
+            expandedRowRender: (record, i) => {
+              return isMobile ? (
+                <div className="bountieExpanded">
+                  <div className="firstRow">
+                    <div>
                       <p style={{ margin: 0 }}>
-                        {" "}
-                        <span className="bold">Notes: </span>
-                        <a style={{ marginLeft: "5px" }} href={record.notes}>
-                          {record.notes}
-                        </a>
+                        {record.description ? record.description : "N/A"}
                       </p>
-                    ) : null}
+                      <div className="smallestMargin"></div>
+                      <p style={{ margin: 0 }}>
+                        <span className="bold">Availability:</span>{" "}
+                        {record.available ? record.available : "N/A"}
+                      </p>
+                      <p style={{ margin: 0 }}>
+                        <span className="bold">Type:</span>{" "}
+                        {record.jobType ? record.jobType : "N/A"}
+                      </p>
+                      <p style={{ margin: 0 }}>
+                        <span className="bold">Necessary Skill(s):</span>{" "}
+                        {record.skills ? record.skills : "N/A"}
+                      </p>
+                      {record.notes ? (
+                        <p style={{ margin: 0 }}>
+                          {" "}
+                          <span className="bold">Notes: </span>
+                          <a style={{ marginLeft: "5px" }} href={record.notes}>
+                            {record.notes}
+                          </a>
+                        </p>
+                      ) : null}
+                    </div>
+                    <Button
+                      id="claimModalButton"
+                      onClick={() => addtoClaimerPanels(i)}
+                    >
+                      {claimerPanels.includes(i)
+                        ? "Close"
+                        : "Claim this bounty"}
+                    </Button>
                   </div>
-                  <Button
-                    id="claimModalButton"
-                    onClick={() => addtoClaimerPanels(i)}
-                  >
-                    {claimerPanels.includes(i) ? "Close" : "Claim this bounty"}
-                  </Button>
-                </div>
 
-                <div className="claimForm">
-                  <Collapse defaultActiveKey={["0"]} activeKey={claimerPanels}>
-                    <Panel header="Bracket panel" key={i}>
-                      <ClaimModal jobForm={jobForm} />
-                    </Panel>
-                  </Collapse>
+                  <div className="claimForm">
+                    <Collapse
+                      defaultActiveKey={["0"]}
+                      activeKey={claimerPanels}
+                    >
+                      <Panel header="Bracket panel" key={i}>
+                        <ClaimModal jobForm={jobForm} />
+                      </Panel>
+                    </Collapse>
+                  </div>
                 </div>
-              </div>
-            ),
+              ) : (
+                <div className="bountieExpanded">
+                  <div className="firstRow">
+                    <div>
+                      <p style={{ margin: 0 }}>
+                        {record.description ? record.description : "N/A"}
+                      </p>
+                      <div className="smallestMargin"></div>
+                      <p style={{ margin: 0 }}>
+                        <span className="bold">Necessary Skill(s):</span>{" "}
+                        {record.skills ? record.skills : "N/A"}
+                      </p>
+                      {record.notes ? (
+                        <p style={{ margin: 0 }}>
+                          {" "}
+                          <span className="bold">Notes: </span>
+                          <a style={{ marginLeft: "5px" }} href={record.notes}>
+                            {record.notes}
+                          </a>
+                        </p>
+                      ) : null}
+                    </div>
+                    <Button
+                      id="claimModalButton"
+                      onClick={() => addtoClaimerPanels(i)}
+                    >
+                      {claimerPanels.includes(i)
+                        ? "Close"
+                        : "Claim this bounty"}
+                    </Button>
+                  </div>
+
+                  <div className="claimForm">
+                    <Collapse
+                      defaultActiveKey={["0"]}
+                      activeKey={claimerPanels}
+                    >
+                      <Panel header="Bracket panel" key={i}>
+                        <ClaimModal jobForm={jobForm} />
+                      </Panel>
+                    </Collapse>
+                  </div>
+                </div>
+              );
+            },
             expandIcon: ({ expanded, onExpand, record }) =>
               expanded ? (
                 <MinusCircleOutlined onClick={(e) => onExpand(record, e)} />
